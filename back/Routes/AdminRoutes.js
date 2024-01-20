@@ -63,7 +63,7 @@ router.post("/add_employee", upload.single("EmpImage"), (req, res) => {
   const sql = `INSERT INTO employee 
     (EmpName,EmpEmail,EmpPassword, EmpSalary, EmpAddress,EmpImage, CategoryId) 
     VALUES (?)`;
-  bcrypt.hash(req.body.password, 10, (err, hash) => {
+  bcrypt.hash(req.body.EmpPassword, 10, (err, hash) => {
     if (err) return res.json({ Status: false, Error: "Query Error" });
     const values = [
       req.body.EmpName,
