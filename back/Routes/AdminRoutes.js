@@ -90,7 +90,7 @@ router.get("/employee", (req, res) => {
 });
 
 router.get("/employee/:EmpId", (req, res) => {
-  const EmpId = req.params.id;
+  const EmpId = req.params.EmpId;
   const sql = "SELECT * FROM employee WHERE EmpId = ?";
   con.query(sql, [EmpId], (err, result) => {
     if (err) return res.json({ Status: false, Error: "Query Error" });
@@ -99,12 +99,12 @@ router.get("/employee/:EmpId", (req, res) => {
 });
 
 router.put("/edit_employee/:EmpId", (req, res) => {
-  const EmpId = req.params.id;
+  const EmpId = req.params.EmpId;
   const sql = `UPDATE employee 
         set EmpName = ?, EmpEmail = ?, EmpSalary = ?, EmpAddress = ?, CategoryId = ? 
         Where EmpId = ?`;
   const values = [
-    req.body.Empname,
+    req.body.EmpName,
     req.body.EmpEmail,
     req.body.EmpSalary,
     req.body.EmpAddress,
