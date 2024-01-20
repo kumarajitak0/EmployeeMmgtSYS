@@ -4,7 +4,7 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   host: "localhost",
   user: "root",
-  password: "Mysql@123#MS",
+  password: "own database psw",
   database: "employeems",
 });
 
